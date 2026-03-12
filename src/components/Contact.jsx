@@ -87,7 +87,7 @@ const Contact = () => {
                         transition={{ duration: 1.6 }}
                         className="flex items-center justify-center w-full"
                     >
-                        <div className="h-[250px] sm:h-[250px] lg:h-[250px] min-w-80 p-4 flex items-center justify-center bg-red-600">
+                        <div className="h-[250px] sm:h-[250px] lg:h-[250px] min-w-80 p-4 flex items-center justify-center">
                             <Carousel
                                 baseWidth={300}
                                 autoplay={false}
