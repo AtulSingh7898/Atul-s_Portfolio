@@ -26,8 +26,9 @@ const Contact = () => {
             <div className="relative z-10 flex flex-col lg:flex-wrap lg:flex-row gap-8 lg:gap-10">
 
                 {/* Left: Heading + Social Links */}
-                <div className="max-w-6xl w-full">
-                    <h1 className="text-[56px] sm:text-[80px] md:text-[100px] lg:text-[120px] font-extrabold leading-[1] lg:leading-[110px]">
+                <div className="max-w-6xl w-full flex ">
+                    <div>
+                        <h1 className="text-[56px] sm:text-[80px] md:text-[100px] lg:text-[120px] font-extrabold leading-[1] lg:leading-[110px]">
                         <span className="bg-gradient-to-r from-orange-500 to-yellow-300 bg-clip-text text-transparent">
                             I'M
                         </span>
@@ -77,9 +78,8 @@ const Contact = () => {
                         ))}
 
                     </div>
-                </div>
+                    </div>
 
-                {/* Right: Carousel */}
                 <div className="w-full lg:max-w-7xl flex items-center justify-center lg:ml-20 relative mt-8 lg:mt-0">
                     <motion.div
                         initial={{ opacity: 0, y: 80 }}
@@ -87,7 +87,7 @@ const Contact = () => {
                         transition={{ duration: 1.6 }}
                         className="flex items-center justify-center w-full"
                     >
-                        <div className="h-[340px] sm:h-[440px] lg:h-[600px] w-full flex items-center justify-center">
+                        <div className="h-[250px] sm:h-[250px] lg:h-[250px] min-w-80 p-4 flex items-center justify-center bg-red-600">
                             <Carousel
                                 baseWidth={300}
                                 autoplay={false}
@@ -99,6 +99,10 @@ const Contact = () => {
                         </div>
                     </motion.div>
                 </div>
+                    
+                </div>
+
+                {/* Right: Carousel */}
 
             </div>
 

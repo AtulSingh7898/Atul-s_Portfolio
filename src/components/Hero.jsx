@@ -194,7 +194,7 @@ const Hero = () => {
             initial={{ scale: 0.7, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1 }}
-            className="absolute left-1/2 -translate-x-1/2 top-10 h-[280px] sm:h-[380px] md:h-[480px] lg:h-130"
+            className="absolute left-1/2 -translate-x-1/2 top-0 h-[280px] sm:h-[380px] md:h-[480px] lg:h-130"
           />
         </div>
 
