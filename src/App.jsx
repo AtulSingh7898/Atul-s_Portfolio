@@ -8,18 +8,26 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Skills from './components/Skills'
 import Footer1 from './components/ui/Footer1'
 // import LandingPage from './components/LandingPage'
+import ServicesSection from './components/ui/ServicesSection'
+import Footer from './components/Footer'
+import GetInTouch from './components/ui/Getintouch'
+import ErrorPage from './Pages/ErrorPage'
 
 const App = () => {
   return (
-    <div className="bg-black text-white overflow-x-hidden">
+    <div className="bg-black text-white">
 
       <SmoothScroll />
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Hero/>}/>
+        <Route path='/about' element={<ServicesSection/>}/>
         <Route path='/service' element={<Projects />}/>
         <Route path='/contect' element={<Contact/>}/>
         <Route path='/project' element={<BlogSection />}/>
+        <Route path='/getintouch' element={<GetInTouch />}/>
+        
+        <Route path='*' element={<ErrorPage/>}/>
       </Routes>
       </BrowserRouter>
       {/* <Footer1/> */}
@@ -29,6 +37,7 @@ const App = () => {
        <BlogSection />
        <Skills/> */}
       {/* <LandingPage/> */}
+      <Footer/>
     </div>
   )
 }

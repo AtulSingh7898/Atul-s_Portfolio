@@ -11,6 +11,38 @@ import Footer from "./Footer";
 import HelpSection from "./HelpSection";
 
 const Hero = () => {
+    const PARTICLES = Array.from({ length: 60 }, (_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  size: Math.random() * 2 + 0.5,
+  speed: Math.random() * 0.3 + 0.1,
+  opacity: Math.random() * 0.4 + 0.1,
+}));
+
+function FloatingParticles() {
+  return (
+    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      {PARTICLES.map((p) => (
+        <div
+          key={p.id}
+          className="absolute rounded-full bg-white"
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            opacity: p.opacity,
+            animation: `floatUp ${8 / p.speed}s linear infinite`,
+            animationDelay: `${Math.random() * 10}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   let handleAnimationComplete = () => {
@@ -19,8 +51,97 @@ const Hero = () => {
 
   return (
     <div>
-      <section className="relative min-h-screen px-4 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 lg:py-10 bg-black text-white overflow-hidden">
+      <style>{`
+        @keyframes floatUp {
+          0% { transform: translateY(0) scale(1); opacity: inherit; }
+          50% { opacity: 0.6; }
+          100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+        }
+        @keyframes slideDown { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity:0; transform: translateY(40px); } to { opacity:1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+        @keyframes scaleIn { from { opacity:0; transform: scale(0.8); } to { opacity:1; transform: scale(1); } }
+        @keyframes ping { 75%,100% { transform: scale(2); opacity: 0; } }
+        @keyframes drawCheck { to { stroke-dashoffset: 0; } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes borderGlow { 0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } 50% { box-shadow: 0 0 20px 2px rgba(255,255,255,0.05); } }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+        .stagger-1 { animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
+        .stagger-2 { animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s both; }
+        .stagger-3 { animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s both; }
+        .stagger-4 { animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.4s both; }
+        .stagger-5 { animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.5s both; }
+        .stagger-6 { animation: slideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.6s both; }
+        .header-anim { animation: slideDown 0.8s cubic-bezier(0.22,1,0.36,1) both; }
+        .input-field {
+          width: 100%; background: transparent; outline: none; color: #fff;
+          font-size: 1rem; font-family: 'Georgia', serif;
+          padding: 0; border: none;
+        }
+        .input-field::placeholder { color: #444; }
+        .input-field:-webkit-autofill { -webkit-text-fill-color: #fff; -webkit-box-shadow: 0 0 0px 1000px #000 inset; }
+        .field-wrap {
+          position: relative; border-bottom: 1px solid;
+          padding: 20px 0 12px; transition: border-color 0.3s ease;
+        }
+        .field-wrap.idle { border-color: #222; }
+        .field-wrap.focused { border-color: #555; }
+        .field-wrap.valid { border-color: #22c55e44; }
+        .field-wrap.error { border-color: #ef444444; }
+        .field-line {
+          position: absolute; bottom: -1px; left: 0; height: 1px;
+          background: linear-gradient(90deg, transparent, #fff, transparent);
+          transition: width 0.4s cubic-bezier(0.22,1,0.36,1);
+        }
+        .submit-btn {
+          position: relative; overflow: hidden;
+          background: #fff; color: #000;
+          border: none; cursor: pointer;
+          font-family: 'Georgia', serif;
+          font-size: 1rem; font-weight: 600;
+          padding: 18px 48px; border-radius: 2px;
+          transition: transform 0.2s ease, box-shadow 0.3s ease;
+          letter-spacing: 0.05em;
+        }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,255,255,0.15); }
+        .submit-btn:active { transform: translateY(0); }
+        .submit-btn::after {
+          content: ''; position: absolute; inset: 0;
+          background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+          background-size: 200% 100%;
+          animation: shimmer 2s infinite;
+        }
+        .back-btn {
+          display: inline-flex; align-items: center; gap: 8px;
+          color: #555; font-size: 0.8rem; letter-spacing: 0.15em;
+          text-transform: uppercase; text-decoration: none;
+          cursor: pointer; transition: color 0.3s ease;
+          background: none; border: none; font-family: 'Georgia', serif;
+        }
+        .back-btn:hover { color: #fff; }
+        .back-btn:hover .arrow { transform: translateX(-4px); }
+        .arrow { transition: transform 0.3s ease; display: inline-block; }
+        .label-float {
+          position: absolute; top: 20px; left: 0;
+          font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+          transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+          pointer-events: none;
+        }
+        .label-float.up { top: 0; font-size: 0.65rem; color: #555; }
+        .label-float.up.focused-lbl { color: #888; }
+        .label-float.up.valid-lbl { color: #22c55e88; }
+        .label-float.up.error-lbl { color: #ef444488; }
+        .label-float.down { color: #333; }
+        .error-msg { font-size: 0.7rem; letter-spacing: 0.1em; color: #ef4444aa; margin-top: 6px; animation: slideDown 0.2s ease; }
+        .valid-icon { color: #22c55e88; font-size: 0.8rem; }
+        .char-count { font-size: 0.65rem; letter-spacing: 0.1em; color: #333; text-align: right; margin-top: 4px; transition: color 0.3s; }
+        .char-count.warn { color: #f59e0b88; }
+        textarea.input-field { resize: none; min-height: 100px; line-height: 1.6; }
+      `}</style>
 
+      <section className="relative min-h-screen px-4 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-8 lg:py-10 bg-black text-white overflow-hidden">
+       
         {/* Navbar */}
         <nav className="flex justify-between items-center relative z-50">
           <h1 className="text-lg font-semibold">
@@ -62,7 +183,7 @@ const Hero = () => {
                 showCallback
               />
             </a>
-            <a href="#">
+            <a href="/about">
               <SplitText
                 text="About"
                 className="text-xl font-semibold text-center"
@@ -132,6 +253,7 @@ const Hero = () => {
               transition={{ duration: 0.3 }}
               className="lg:hidden absolute top-16 sm:top-20 left-0 w-full bg-black/95 backdrop-blur-sm border-b border-white/10 z-40 flex flex-col items-center gap-6 py-8"
             >
+              <FloatingParticles/>
               {[
                 { label: "Works", href: "#" },
                 { label: "About", href: "#" },
@@ -156,9 +278,11 @@ const Hero = () => {
         </div>
 
         {/* Big Text + Image Section */}
+        
         <div className="text-center mt-24 sm:mt-28 lg:mt-32 relative">
 
           {/* Background faded text */}
+          <FloatingParticles/>
           <motion.h1
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 0.1, y: 0 }}
@@ -209,7 +333,7 @@ const Hero = () => {
 
         {/* Get In Touch Button */}
         <button className="absolute bottom-12 sm:bottom-14 lg:bottom-16 right-4 sm:right-8 lg:right-16 bg-white font-semibold text-black px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-full flex items-center gap-2 hover:scale-105 transition">
-          Get In Touch
+          <a href="getintouch">Get In Touch</a>
           <span className="bg-yellow-400 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-xs">
             →
           </span>
@@ -222,7 +346,7 @@ const Hero = () => {
       <Skills />
       <HelpSection />
       <Works />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

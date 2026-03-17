@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const blogs = [
   {
     id: "01",
-    title: "2023 design trend crafting minimalist web experiences",
+    title: "2022 Design trend crafting minimalist web Started",
     time: "10 min read",
     img: "/blog1.jpg",
     link:"https://food-order-site-r122hl1dq-atul-kumar-manihars-projects.vercel.app/"
@@ -17,7 +17,7 @@ const blogs = [
   },
   {
     id: "03",
-    title: "2023 design trend crafting minimalist web experiences",
+    title: "2026 design trend crafting minimalist web experiences",
     time: "10 min read",
     img: "/blog3.jpg",
     link:"https://doctor-appointments-n8qgl6bh2-atul-kumar-manihars-projects.vercel.app/"

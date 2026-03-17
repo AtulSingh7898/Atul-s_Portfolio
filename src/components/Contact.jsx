@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import DotGrid from "./ui/DotGrid";
 import Carousel from "./ui/Carousel";
+import { href } from "react-router-dom";
 
 const Contact = () => {
     return (
@@ -57,9 +58,9 @@ const Contact = () => {
                     <div className="flex flex-wrap gap-5 sm:gap-8 lg:gap-10 mt-10 lg:mt-20 text-gray-300 text-sm sm:text-base">
 
                         {[
-                            { label: "GitHub", href: "/" },
+                            { label: "GitHub", href:"/" },
                             { label: "Leet Code", href: "/" },
-                            { label: "LinkedIn", href: "/" },
+                            { label: "LinkedIn", href: "/https://www.linkedin.com/in/atul-kumar-manihar-9b289525a/" },
                             { label: "Instagram", href: "/" },
                         ].map((item, i) => (
                             <motion.h2
@@ -69,6 +70,7 @@ const Contact = () => {
                                 transition={{ duration: 1 + i * 0.1 }}
                             >
                                 <a
+                                 
                                     href={item.href}
                                     className="flex items-center gap-2 cursor-pointer hover:text-white transition"
                                 >
@@ -79,6 +81,7 @@ const Contact = () => {
 
                     </div>
                     </div>
+                    
 
                 <div className="w-full lg:max-w-7xl flex items-center justify-center lg:ml-20 relative mt-8 lg:mt-0">
                     <motion.div

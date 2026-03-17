@@ -14,7 +14,7 @@ const works = [
     },
     {
         id: "002",
-        title: "Next Framwork Design",
+        title: "Next Fremwork Design",
         year: "2025–26",
         image: "/chintu2.jpg",
     },
