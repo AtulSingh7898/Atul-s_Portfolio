@@ -200,7 +200,7 @@ function FloatingParticles() {
                 showCallback
               />
             </a>
-            <a href={BlogSection}>
+            <a href="/projects">
               <SplitText
                 text="Projects"
                 className="text-xl font-semibold text-center cursor-pointer"

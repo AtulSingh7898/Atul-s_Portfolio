@@ -15,7 +15,7 @@ import ErrorPage from './Pages/ErrorPage'
 
 const App = () => {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-hidden">
 
       <SmoothScroll />
       <BrowserRouter>
@@ -24,7 +24,7 @@ const App = () => {
         <Route path='/about' element={<ServicesSection/>}/>
         <Route path='/service' element={<Projects />}/>
         <Route path='/contect' element={<Contact/>}/>
-        <Route path='/project' element={<BlogSection />}/>
+        <Route path='/projects' element={<BlogSection />}/>
         <Route path='/getintouch' element={<GetInTouch />}/>
         
         <Route path='*' element={<ErrorPage/>}/>

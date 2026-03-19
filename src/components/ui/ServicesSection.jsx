@@ -155,7 +155,7 @@ export default function MarketingServices() {
           className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight"
           style={{ fontFamily: "'Segoe UI', sans-serif" }}
         >
-          Our Services
+          About Services
         </h1>
         <p className="text-gray-400 text-base md:text-lg leading-relaxed">
           From strategy to execution, our services are built to elevate your design, engage
