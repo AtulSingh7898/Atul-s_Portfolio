@@ -9,6 +9,7 @@ import Contact from "./Contact";
 import Works from "./Work";
 import Footer from "./Footer";
 import HelpSection from "./HelpSection";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
     const PARTICLES = Array.from({ length: 60 }, (_, i) => ({
@@ -183,10 +184,10 @@ function FloatingParticles() {
                 showCallback
               />
             </a>
-            <a href="/about">
+            <Link to="/about">
               <SplitText
                 text="About"
-                className="text-xl font-semibold text-center"
+                className="text-xl font-semibold text-center cursor-pointer"
                 delay={50}
                 duration={1.25}
                 ease="power3.out"
@@ -199,8 +200,9 @@ function FloatingParticles() {
                 onLetterAnimationComplete={handleAnimationComplete}
                 showCallback
               />
-            </a>
-            <a href="/projects">
+              </Link>
+            
+            <Link to="/projects">
               <SplitText
                 text="Projects"
                 className="text-xl font-semibold text-center cursor-pointer"
@@ -216,7 +218,7 @@ function FloatingParticles() {
                 onLetterAnimationComplete={handleAnimationComplete}
                 showCallback
               />
-            </a>
+              </Link>
           </div>
 
           {/* Hamburger Icon — visible only on sm and md */}
@@ -257,7 +259,7 @@ function FloatingParticles() {
               {[
                 { label: "Works", href: "#" },
                 { label: "About", href: "#" },
-                { label: "Projects", href: "#" },
+                { label: "Projects", href: "/projects" },
               ].map((item) => (
                 <a
                   key={item.label}

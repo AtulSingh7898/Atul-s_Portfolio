@@ -4,7 +4,8 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import SmoothScroll from './SmoothScroll'
 import BlogSection from './components/BlogSection'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Skills from './components/Skills'
 import Footer1 from './components/ui/Footer1'
 // import LandingPage from './components/LandingPage'
@@ -23,7 +24,7 @@ const App = () => {
         <Route path='/' element={<Hero/>}/>
         <Route path='/about' element={<ServicesSection/>}/>
         <Route path='/service' element={<Projects />}/>
-        <Route path='/contect' element={<Contact/>}/>
+        <Route path='/contact' element={<Contact/>}/>
         <Route path='/projects' element={<BlogSection />}/>
         <Route path='/getintouch' element={<GetInTouch />}/>
         
