@@ -167,10 +167,10 @@ function FloatingParticles() {
 
           {/* Desktop Nav Links — lg and above, untouched */}
           <div className="hidden lg:flex items-center space-x-8 text-sm">
-            <a href="#">
+            <Link to="/Work">
               <SplitText
                 text="Works"
-                className="text-xl font-semibold text-center"
+                className="text-xl font-semibold text-center cursor-pointer"
                 delay={50}
                 duration={1.25}
                 ease="power3.out"
@@ -183,7 +183,7 @@ function FloatingParticles() {
                 onLetterAnimationComplete={handleAnimationComplete}
                 showCallback
               />
-            </a>
+              </Link>
             <Link to="/about">
               <SplitText
                 text="About"

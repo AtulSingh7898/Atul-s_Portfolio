@@ -93,9 +93,9 @@ const Footer = () => {
         </div>
 
         <div className="flex gap-6 text-lg">
-          <a href="https://www.linkedin.com/in/atul-kumar-manihar-9b289525a/"><FaLinkedinIn className="cursor-pointer hover:text-white"/></a>
-          <a href="https://github.com/AtulSingh7898"><FaGithub className="cursor-pointer hover:text-white"/></a>
-          <a href="https://www.instagram.com/just_a_person_z/"><AiFillInstagram className="cursor-pointer hover:text-white"/></a>
+          <a href="https://www.linkedin.com/in/atul-kumar-manihar-9b289525a/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className="cursor-pointer hover:text-white"/></a>
+          <a href="https://github.com/AtulSingh7898" target="_blank" rel="noopener noreferrer"><FaGithub className="cursor-pointer hover:text-white"/></a>
+          <a href="https://www.instagram.com/just_a_person_z/" target="_blank" rel="noopener noreferrer"><AiFillInstagram className="cursor-pointer hover:text-white"/></a>
           <a href=""><FaXTwitter className="cursor-pointer hover:text-white"/></a>
           <a href=""><FaYoutube className="cursor-pointer hover:text-white"/></a>
           <a href=""><FaLaptop className="cursor-pointer hover:text-white"/></a>
